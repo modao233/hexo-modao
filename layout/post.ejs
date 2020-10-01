@@ -1,0 +1,33 @@
+<%- partial("_partial/header") %>
+
+<%- css('css/font.css') %>
+<%- css('css/post.css') %>
+<%- css('css/highlight.css') %>
+
+<div class="content-area">
+	<div class="title">
+		<%- page.title %>
+	</div>
+	
+	<div class="page-date">
+		<%- full_date(page.date, 'YYYY-MM-DD')%>
+	</div>
+	
+	<div class="category-area">
+		<% if (page.categories) { %>
+			<% for (var j=0; j < page.categories.data.length; j++) { %> <% if (page.categories.data[j] &&
+				page.categories.data[j].name) { %>
+				「
+				<div class="category">
+					<a href="/categories/<%- page.categories.data[j].name %>"><%- page.categories.data[j].name %></a>
+				<% } %>
+				</div>
+				」
+			<% } %>
+		<% } %>
+	</div>
+	
+	<div class="content">
+		<%- page.content %>
+	</div>
+</div>

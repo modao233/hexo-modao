@@ -1,0 +1,13 @@
+<%- css('css/navigatebar.css') %>
+
+<div class="navigatebar">
+	<div class="navigatebar-button navigatebar-mine">
+    <a href="<%- url_for() %>"><%= config.title %></a>
+	</div>
+	
+	<% for (name in theme.menu) { %>
+        <div class="navigatebar-button">
+          <a href="<%- url_for(theme.menu[name]) %>"><%- __(name) %></a>
+        </div>
+	<% } %>
+</div>

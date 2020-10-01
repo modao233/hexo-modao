@@ -1,0 +1,48 @@
+<%- css('css/home.css') %>
+<%- css('css/font.css') %>
+
+
+<header class="topbar">
+	<div class="topbar-button">
+		<a href="<%- url_for() %>"><%= config.title %></a>
+	</div>
+	<% for (name in theme.menu) { %>
+        <div class="topbar-button">
+			<a href="<%- url_for(theme.menu[name]) %>"><%- __(name) %></a>
+        </div>
+	<% } %>
+</header>
+<div class="slogan">
+	「hello world！」
+</div>
+
+<ul>
+	<% site.posts.each(function (post) { %>
+		<li class="post-line">
+			<a class="post-title" href="<%- url_for(post.path) %>"><%= post.title %></a>
+		
+		<div class="post-summary">
+			<%- post.excerpt %>
+		</div>
+		
+		<div class="post-info">
+			<div class="category-area">
+				<% if (post.categories) { %>
+					<% for (var j=0; j < post.categories.data.length; j++) { %> <% if (post.categories.data[j] &&
+						post.categories.data[j].name) { %>
+						<div class="category">
+							<a href="/categories/<%- post.categories.data[j].name %>"><%- post.categories.data[j].name %></a>
+						<% } %>
+						</div>
+					<% } %>
+				<% } %>
+			</div>
+			
+			<div class="right-info-area">
+				<div class="post-date">
+					<%- full_date(post.date, 'YYYY-MM-DD')%>
+				</div>
+			</div>
+		</li>
+	<% }) %>
+</ul>
