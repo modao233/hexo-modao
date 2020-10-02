@@ -5,29 +5,34 @@
 
 <div class="tag-box">
     <div id="archives">
-        <div class="archive-group">
             <% if (site.categories) { %>
 				<% for (var i=0; i < site.categories.data.length; i++) { %> 
 					<% if (site.categories.data[i] && site.categories.data[i].name) { %>
-						<a class="category-head">「<%= site.categories.data[i].name %>」</a>
-						<% site.posts.each(function (post) {%>
-						<% if(post.categories.data[0].name == site.categories.data[i].name){%>
-							<article class="archive-item">
-							<a href="<%- url_for(post.path) %>"><%= post.title %></a>
-							</article>
-						<% }}) %>
+						<div class="archive-group">
+							<div id="<%- site.categories.data[i].name %>"></div>
+							<p></p>
+							<a class="category-head">「<%= site.categories.data[i].name %>」</a>
+							
+							<% site.posts.each(function (post) {%>
+							<% if(post.categories.data[0].name == site.categories.data[i].name){%>
+								<article class="archive-item">
+								<a href="<%- url_for(post.path) %>"><%= post.title %></a>
+								</article>
+							<% }}) %>
+							
+						</div>
 					<% } %>
 					<br>
 				<% } %>
 			<% } %>
-		</div>
+		
 	</div>
 	
 	<div class="categories-area">
 		<% if (site.categories) { %>
 			<% for (var j=0; j < site.categories.data.length; j++) { %> 
 				<% if (site.categories.data[j] && site.categories.data[j].name) { %>
-					<a class="category-item" href="/categories/<%- site.categories.data[j].name %>"><%= site.categories.data[j].name %></a>
+					<a class="category-item" href="#<%- site.categories.data[j].name %>"><%= site.categories.data[j].name %></a>
 				<% } %>
 			<% } %>
 		<% } %>
