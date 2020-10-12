@@ -1,7 +1,8 @@
 <%- partial("_partial/header") %>
 
 <%- css('css/font.css') %>
-<%- css('css/post.css') %>
+<%- css({href: 'css/post.css', media: 'screen and (min-width: 600px)' }) %>
+<%- css({href: 'css/post_mobile.css', media: 'screen and (max-width: 600px)' }) %>
 <%- css('css/highlight.css') %>
 
 <div class="content-area">

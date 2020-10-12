@@ -1,7 +1,8 @@
 <%- partial("_partial/header") %>
 
 <%- css('css/font.css') %>
-<%- css('css/category.css') %>
+<%- css({href: 'css/category.css', media: 'screen and (min-width: 600px)' }) %>
+<%- css({href: 'css/category_mobile.css', media: 'screen and (max-width: 600px)' }) %>
 
 <div class="tag-box">
     <div id="archives">
@@ -32,7 +33,10 @@
 		<% if (site.categories) { %>
 			<% for (var j=0; j < site.categories.data.length; j++) { %> 
 				<% if (site.categories.data[j] && site.categories.data[j].name) { %>
-					<a class="category-item" href="#<%- site.categories.data[j].name %>"><%= site.categories.data[j].name %></a>
+					<a class="category-item" href="#<%- site.categories.data[j].name %>">
+						<div class="category-name"><%= site.categories.data[j].name %></div>
+						<div class="category-number">[<%= site.categories.data[j].posts.length %>]</div>
+					</a>
 				<% } %>
 			<% } %>
 		<% } %>
