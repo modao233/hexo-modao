@@ -1,0 +1,57 @@
+<%- partial("_partial/header") %>
+
+<%- css('css/font.css') %>
+<%- css({href: 'css/post.css', media: 'screen and (min-width: 600px)' }) %>
+<%- css({href: 'css/post_mobile.css', media: 'screen and (max-width: 600px)' }) %>
+<%- css('css/links.css') %>
+<%- css('css/highlight.css') %>
+
+<div class="content-area">
+  <article id="<%= page.layout %>">
+      <section>
+        <%- page.excerpt %>
+        <% if (page.links){ %>
+          <% (page.links||[]).forEach(function(group){ %>
+            <% if(group.items) { %>
+              <div>
+                <% if(group.group) { %>
+                  <div class="title">
+                    <% if (group.icon) { %>
+                      <i class="<%= group.icon %> fa-fw" aria-hidden="true"></i>
+                    <%} %>
+                    <%= group.group %>
+                  </div>
+                  <% if(group.desc) { %>
+                    <%- markdown(group.desc) %>
+                  <%} %>
+                <%} %>
+				<br><br>
+                <div>
+                  <% (group.items||[]).forEach(function(item){ %>
+				  <div class="group-item">
+					<a href='<%- url_for(item.url || '') %>'>
+                        <% if(item.avatar || (config.lazyload && config.lazyload.loadingImg)){ %>
+                          <img class='avatar' src='<%- item.avatar || (config.lazyload && config.lazyload.loadingImg) %>'/>
+                        <% } %>
+                    </a>
+					<a href='<%- url_for(item.url || '') %>'>
+						<%- item.name %>
+					</a>
+					<div class="group-item-meta">
+						<% if(item.desc){ %>
+							  <div class='friend-tags-wrapper'>
+								<p class="tags"><%= item.desc %></p>
+							  </div>
+						<% } %>
+					</div>
+					</div>
+                  <% }) %>
+                </div>
+              </div>
+            <%} %>
+          <% }) %>
+        <% } %>
+        <%- page.more %>
+      </section>
+  </article>
+</div>
