@@ -6,7 +6,7 @@ A super simple Theme for Hexo
 
 ## My Environment ：
 
-![image-20201001232534443](README/image-20201001232534443.png)
+![image-20201001232534443](Environment.png)
 
 ## Use
 
