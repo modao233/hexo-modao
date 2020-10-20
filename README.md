@@ -2,7 +2,9 @@
 
 ## Introduction
 
-A super simple Theme for Hexo
+A super simple Theme for Hexo.
+
+modao233.github.io
 
 ## My Environment ：
 
