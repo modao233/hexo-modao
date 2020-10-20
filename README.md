@@ -4,7 +4,7 @@
 
 A super simple Theme for Hexo.
 
-[modao’s blog](modao233.github.io)
+[modao’s blog](https://modao233.github.io)
 
 ## My Environment ：
 
