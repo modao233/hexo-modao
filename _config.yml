@@ -1,7 +1,8 @@
 menu:
-  主页: /
-  分类: /categories
-  友链: /links
-  关于我: /about
+  Home: /
+  Categories: /categories
+  Links: /links
+  Sites: /sites
+  Project: /project
   
 title: modao
