@@ -24,3 +24,10 @@ categories: Linux
 ---
 ```
 
+the theme had added the pdf.js, the usage:
+
+```
+{% iframe /pdf.js/web/viewer.html?file=/book/xx.pdf 100% 400 %}
+```
+
+For more use, please refer to official documents:[PDF.js](https://github.com/mozilla/pdf.js)
