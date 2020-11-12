@@ -7,36 +7,36 @@
 <div class="tag-box">
     <div id="archives">
             <% if (site.categories) { %>
-				<% for (var i=0; i < site.categories.data.length; i++) { %> 
-					<% if (site.categories.data[i] && site.categories.data[i].name) { %>
+				<% site.categories.sort('name').each(function(site_item){%> 
+					<% if (site_item && site_item.name) { %>
 						<div class="archive-group">
-							<div id="<%- site.categories.data[i].name %>"></div>
+							<div id="<%- site_item.name %>"></div>
 							<p></p>
-							<a class="category-head">「<%= site.categories.data[i].name %>」</a>
+							<a class="category-head">「<%= site_item.name %>」</a>
 							
 							<% site.posts.each(function (post) {%>
-							<% for (var j=0; j < post.categories.data.length; j++) { %> 
-								<% if(post.categories.data[j].name == site.categories.data[i].name){%>
+							<% post.categories.sort('name').each(function(post_item){ %> 
+								<% if(post_item.name == site_item.name){%>
 									<article class="archive-item">
 									<a href="<%- url_for(post.path) %>"><%= post.title %></a>
 									</article>
-								<% }}}) %>
+								<% }})}) %>
 						</div>
 					<% } %>
-				<% } %>
+				<% }) %>
 			<% } %>
 	</div>
 	
 	<div class="categories-area">
 		<% if (site.categories) { %>
-			<% for (var j=0; j < site.categories.data.length; j++) { %> 
-				<% if (site.categories.data[j] && site.categories.data[j].name) { %>
-					<a class="category-item" href="#<%- site.categories.data[j].name %>">
-						<div class="category-name"><%= site.categories.data[j].name %></div>
-						<div class="category-number">[<%= site.categories.data[j].posts.length %>]</div>
+			<% site.categories.sort('name').each(function(site_item){ %> 
+				<% if (site_item && site_item.name) { %>
+					<a class="category-item" href="#<%- site_item.name %>">
+						<div class="category-name"><%= site_item.name %></div>
+						<div class="category-number">[<%= site_item.posts.length %>]</div>
 					</a>
 				<% } %>
-			<% } %>
+			<% }) %>
 		<% } %>
 	</div>
 </div>
