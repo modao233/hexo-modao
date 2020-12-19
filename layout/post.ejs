@@ -5,6 +5,10 @@
 <%- css({href: 'css/post_mobile.css', media: 'screen and (max-width: 600px)'}) %>
 <%- css('css/highlight.css') %>
 
+<div class="toc">
+<%- toc(page.content,{list_number:false}) %>
+</div>
+
 <div class="content-area">
 	<div class="title">
 		<%- page.title %>
