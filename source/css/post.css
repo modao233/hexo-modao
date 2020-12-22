@@ -3,8 +3,8 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    background-color: #FFF;
-    color: #333;
+    background-color: #282c35;
+    color: #cbd5e0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,7 +15,7 @@ body {
 
 .content-area {
     box-sizing: border-box;
-    background-color: #FFF;
+    background-color: #282c35;
     border-radius: 5px;
     width: 60%;
     margin: 20px;
@@ -41,7 +41,7 @@ a {
 }
 
 .title {
-    color: #000;
+    color: #ffa7c4;
     font-size: 26px;
     margin-bottom: 10px;
     text-align: center;
@@ -116,13 +116,13 @@ table {
 }
 
 tbody tr:nth-child(even) {
-    background-color: #FAFAFA;
+    background-color: #282c35;
 }
 
 th {
     border: 1px solid #AAA;
     padding: 5px;
-    background-color: #F8F8F8;
+    background-color: #282c35;
 }
 
 td {
@@ -190,7 +190,7 @@ blockquote p {
     white-space: normal;
     border-left: 4px solid #EAEAEA;
     padding: 10px;
-    background-color: #F8F8F8;
+    background-color: #3e3f4a;
     margin-top: 40px;
 }
 
