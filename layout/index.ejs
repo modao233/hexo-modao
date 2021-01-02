@@ -22,23 +22,27 @@
 	<% site.posts.sort('date',-1).each(function (post) { %>
 		<li class="post-line">
 			<a class="post-title" href="<%- url_for(post.path) %>"><%= post.title %></a>
+			
+			<div class="category-area">
+				<% if (post.categories) { %>
+					<% for (var j=0; j < post.categories.data.length; j++) { %> <% if (post.categories.data[j] &&
+						post.categories.data[j].name) { %>
+						<a href="/categories/<%- post.categories.data[j].name %>">
+						<div class="category">
+							<%- post.categories.data[j].name %>
+						<% } %>
+						</div>
+						</a>
+					<% } %>
+				<% } %>
+			</div>
 		
 		<div class="post-summary">
 			<%- post.excerpt %>
 		</div>
 		
 		<div class="post-info">
-			<div class="category-area">
-				<% if (post.categories) { %>
-					<% for (var j=0; j < post.categories.data.length; j++) { %> <% if (post.categories.data[j] &&
-						post.categories.data[j].name) { %>
-						<div class="category">
-							<a href="/categories/<%- post.categories.data[j].name %>"><%- post.categories.data[j].name %></a>
-						<% } %>
-						</div>
-					<% } %>
-				<% } %>
-			</div>
+			
 			
 			<div class="right-info-area">
 				<div class="post-date">
