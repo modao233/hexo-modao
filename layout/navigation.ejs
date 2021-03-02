@@ -5,13 +5,9 @@
 <div class="page-container">
   <div class="sidebar-menu toggle-others fixed">
     <div class="sidebar-menu-inner ps-container">
-	  <header class-"logo-env">
-	    <div class="logo">
-		  <a href="/" class="logo-expanded">
-		    <img src="/img/friend.png" width="100%" alt="modao的导航">
-          </a>
-		</div>
-	  </header>
+	  <div class="navigatebar navigatebar-button navigatebar-mine">
+		<a style="color:#a2c0f3" href="<%- url_for() %>"><%= config.title %></a>
+	  </div>
 	  <ul id="main-menu" class="main-menu">
 	    <% if (page.links){ %>
           <% (page.links||[]).forEach(function(group){ %>
@@ -28,7 +24,7 @@
 	</div>
   </div>
   <div class="main-content">
-    <%- partial("_partial/header") %>
+    
 
     <%- page.excerpt %>
         <% if (page.links){ %>
