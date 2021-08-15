@@ -1,57 +1,66 @@
+<!-- 主页模板 -->
 <%- css('css/home.css') %>
 <%- css('css/font.css') %>
-<%- css({href: 'css/home.css', media: 'screen and (min-width: 600px)'}) %>
-<%- css({href: 'css/home_mobile.css', media: 'screen and (max-width: 600px)'}) %>
+<%- css({href: 'css/home.css' , media: 'screen and (min-width: 600px)' }) %>
+<%- css({href: 'css/home_mobile.css' , media: 'screen and (max-width: 600px)' }) %>
 
 <main class="content">
-<header class="topbar">
-	<div class="topbar-button topbar-mine">
-		<a href="<%- url_for() %>"><%= config.title %></a>
-	</div>
-	<% for (name in theme.menu) { %>
-        <div class="topbar-button">
-			<a href="<%- url_for(theme.menu[name]) %>"><%- __(name) %></a>
-        </div>
-	<% } %>
-</header>
-<div class="slogan">
-	*
-	*
-	*
-</div>
-
-<ul>
-	<% site.posts.sort('date',-1).each(function (post) { %>
-		<li class="post-line">
-			<a class="post-title" href="<%- url_for(post.path) %>"><%= post.title %></a>
-			
-			<div class="category-area">
-				<% if (post.categories) { %>
-					<% for (var j=0; j < post.categories.data.length; j++) { %> <% if (post.categories.data[j] &&
-						post.categories.data[j].name) { %>
-						<a href="/categories/<%- post.categories.data[j].name %>">
-						<div class="category">
-							<%- post.categories.data[j].name %>
-						<% } %>
-						</div>
-						</a>
-					<% } %>
-				<% } %>
+	<header>
+		<div class="topbar">
+			<div class="topbar-button topbar-mine">
+				<a href="<%- url_for() %>">
+					<%= config.title %>
+				</a>
 			</div>
-		
-		<div class="post-summary">
-			<%- post.excerpt %>
-		</div>
-		
-		<div class="post-info">
-			
-			
-			<div class="right-info-area">
-				<div class="post-date">
-					<%- full_date(post.date, 'YYYY-MM-DD')%>
+			<% for (name in theme.menu) { %>
+				<div class="topbar-button">
+					<a href="<%- url_for(theme.menu[name]) %>">
+						<%- __(name) %>
+					</a>
 				</div>
-			</div>
-		</li>
-	<% }) %>
-</ul>
+			<% } %>
+
+		</div>
+		<div class="slogan">
+			「生活可以更简单, 欢迎来到我的开源世界」
+		</div>
+	</header>
+
+	<ul>
+		<% site.posts.sort('date',-1).each(function (post) { %>
+			<li class="post-line">
+				<a class="post-title" href="<%- url_for(post.path) %>">
+					<% if(post.title) {%>
+						<%= post.title %>
+					<% }else{ %>
+						忘了写标题了
+					<% } %>
+				</a>
+
+				<div class="post-info">
+					<div class="category-area">
+						<% if (post.categories.data.length) { %>
+							<% for (var j=0; j < post.categories.data.length; j++) { %>
+								<% if (post.categories.data[j] && post.categories.data[j].name) { %>
+									<a href="/categories/<%- post.categories.data[j].name %>">
+										<div class="category">
+											<%- post.categories.data[j].name %>
+										</div>
+									</a>
+								<% } %>
+							<% } %>
+						<% }else{ %>
+							忘了写分类了
+						<% } %>
+					</div>
+
+					<div class="right-info-area">
+						<div class="post-date">
+							<%- full_date(post.date, 'YYYY-MM-DD' )%>
+						</div>
+					</div>
+				</div>
+			</li>
+							<% }) %>
+	</ul>
 </main>

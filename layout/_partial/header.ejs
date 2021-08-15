@@ -1,13 +1,23 @@
+<!-- 主页标题栏 -->
 <%- css('css/navigatebar.css') %>
 
-<div class="navigatebar">
-	<div class="navigatebar-button navigatebar-mine">
-    <a href="<%- url_for() %>"><%= config.title %></a>
+<header class="header">
+	<div class="topbar">
+		<div class="topbar-button topbar-mine">
+			<a href="<%- url_for() %>">
+				<%= config.title %>
+			</a>
+		</div>
+		<% for (name in theme.menu) { %>
+			<div class="topbar-button">
+				<a href="<%- url_for(theme.menu[name]) %>">
+					<%- __(name) %>
+				</a>
+			</div>
+		<% } %>
+
 	</div>
-	
-	<% for (name in theme.menu) { %>
-        <div class="navigatebar-button">
-          <a href="<%- url_for(theme.menu[name]) %>"><%- __(name) %></a>
-        </div>
-	<% } %>
-</div>
+	<div class="slogan">
+		「生活可以更简单, 欢迎来到我的开源世界」
+	</div>
+</header>

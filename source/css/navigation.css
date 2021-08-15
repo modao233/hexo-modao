@@ -773,7 +773,7 @@ body {
 
 .page-container {
     display: table;
-    width: 100%;
+    width: 80%;
     height: 100%;
     vertical-align: top;
     border-collapse: collapse;
@@ -920,7 +920,7 @@ body {
     display: table-cell;
     position: relative;
     width: 280px;
-    background: #2c2e2f;
+    background: #ffffff;
     z-index: 1
 }
 
@@ -973,7 +973,7 @@ body {
 }
 
 .sidebar-menu .main-menu a {
-    color: #979898;
+    color: #105353;
     text-decoration: none;
     display: block;
     padding: 13px 5px;
@@ -6213,7 +6213,7 @@ label.cbr-inline+.cbr-inline {
 }
 
 .label.label-pink {
-    background-color: #ff6264;
+    background-color: #9a9393;
     color: #fff;
 	width: 26px;
 }
@@ -9080,11 +9080,11 @@ pre {
     -moz-transition: opacity 100ms ease-in-out;
     -o-transition: opacity 100ms ease-in-out;
     transition: opacity 100ms ease-in-out;
-	background-color: #282c35;
+	background-color: #ffffff;
 }
 
 .text-pink {
-    color: #ffa7c4;
+    color: #000000;
 	font-weight: 400;
 	font-size: 17px;
 	margin-top: 9px;
@@ -9144,7 +9144,7 @@ pre {
 
 .xe-widget.xe-conversations {
     position: relative;
-    background: #ffa7c4;
+    background: #dadada;
     margin-bottom: 0px;
     padding: 15px
 }
