@@ -1,9 +1,13 @@
+<!-- 文章详情页模板 -->
+
 <%- partial("_partial/header") %>
 
 <%- css('css/font.css') %>
 <%- css({href: 'css/post.css', media: 'screen and (min-width: 600px)'}) %>
 <%- css({href: 'css/post_mobile.css', media: 'screen and (max-width: 600px)'}) %>
 <%- css('css/highlight.css') %>
+
+
 
 <div class="toc">
 <%- toc(page.content,{list_number:false}) %>
@@ -38,4 +42,3 @@
 </div>
 <%- partial('_partial/totop') %>
 <script src="<%- config.root %>js/totop.js"></script>
-<%- partial('_partial/copyright') %>
